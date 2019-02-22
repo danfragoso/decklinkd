@@ -1,0 +1,11 @@
+[Unit]
+Description=Outputs DecklinkRecorder to decklink named pipe
+After=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/bmdcapture -m 0 -A 2 -V 4 -F nut -o strict=experimental:syncpoints=none -f decklink
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
